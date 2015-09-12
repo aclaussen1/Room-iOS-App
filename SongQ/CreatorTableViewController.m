@@ -55,7 +55,19 @@
     cell.songArtist.text = cell.musicPlayer.nowPlayingItem.artist;
     cell.songAlbum.text = cell.musicPlayer.nowPlayingItem.albumTitle;
     MPMediaItemArtwork *artwork = [cell.musicPlayer.nowPlayingItem valueForProperty:MPMediaItemPropertyArtwork];
-   
+    
+    PFFile *imageFile = [self.partyUploaded objectForKey:@"imageOfParty"];
+    [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+        if (!error) {
+            UIImage *image = [UIImage imageWithData:data];
+            cell.groupImage.image= image;
+            //to create circlular image
+            cell.groupImage.layer.cornerRadius = cell.groupImage.frame.size.width / 2;
+            cell.groupImage.clipsToBounds = YES;
+        }
+    }];
+    cell.groupName.text = [self.partyUploaded objectForKey:@"nameOfParty"];
+    
     /*
     PFObject *obj = [[PFObject alloc] initWithClassName:@"Party"];
     UIImage *chosenImage = [artwork imageWithSize:c];

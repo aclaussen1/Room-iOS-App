@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import <Parse/Parse.h>
 
 @interface creatorMainTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *groupName;

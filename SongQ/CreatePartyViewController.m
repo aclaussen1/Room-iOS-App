@@ -85,7 +85,8 @@
         PFObject *object = [repeatedParties objectAtIndex:x];
         [object deleteEventually];
     }
-
+    
+    
 
     [self.partyToUpload saveInBackground];
 }
@@ -456,7 +457,7 @@
         
         // Pass any objects to the view controller here, like...
         [vc setMediaItemCollection:self.selectedMediaItemCollection];
-        
+        [vc setPartyUploaded:self.partyToUpload];
         
     }
 }

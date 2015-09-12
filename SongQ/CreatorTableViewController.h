@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import <Parse/Parse.h>
 
 @interface CreatorTableViewController : UITableViewController
 
 @property  MPMediaItemCollection * mediaItemCollection;
+@property PFObject *partyUploaded;
 @end
