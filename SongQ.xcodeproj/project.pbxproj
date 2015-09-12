@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		B1A060241BA3FBC1006D78E2 /* CNPPopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A060221BA3FBC1006D78E2 /* CNPPopupController.m */; };
 		B1A060261BA401A3006D78E2 /* babyCrying.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B1A060251BA401A3006D78E2 /* babyCrying.jpeg */; };
+		B1B31D0C1BA411B7007B9072 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B31D0B1BA411B7007B9072 /* LoginViewController.m */; };
+		B1B31D0F1BA411D3007B9072 /* InternetConnectivity.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B31D0E1BA411D3007B9072 /* InternetConnectivity.m */; };
+		B1B31D121BA4145E007B9072 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B31D101BA4145E007B9072 /* RegisterViewController.m */; };
 		B1EF38D31BA3D23700B11885 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EF38D21BA3D23700B11885 /* main.m */; };
 		B1EF38D61BA3D23700B11885 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EF38D51BA3D23700B11885 /* AppDelegate.m */; };
 		B1EF38D91BA3D23700B11885 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EF38D81BA3D23700B11885 /* ViewController.m */; };
@@ -50,6 +53,12 @@
 		B1A060211BA3FBC1006D78E2 /* CNPPopupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNPPopupController.h; sourceTree = "<group>"; };
 		B1A060221BA3FBC1006D78E2 /* CNPPopupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNPPopupController.m; sourceTree = "<group>"; };
 		B1A060251BA401A3006D78E2 /* babyCrying.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = babyCrying.jpeg; sourceTree = "<group>"; };
+		B1B31D0A1BA411B7007B9072 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		B1B31D0B1BA411B7007B9072 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		B1B31D0D1BA411D3007B9072 /* InternetConnectivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InternetConnectivity.h; sourceTree = "<group>"; };
+		B1B31D0E1BA411D3007B9072 /* InternetConnectivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InternetConnectivity.m; sourceTree = "<group>"; };
+		B1B31D101BA4145E007B9072 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		B1B31D111BA4145E007B9072 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		B1EF38CD1BA3D23700B11885 /* SongQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SongQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1EF38D11BA3D23700B11885 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1EF38D21BA3D23700B11885 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -150,6 +159,10 @@
 		B1EF38CF1BA3D23700B11885 /* SongQ */ = {
 			isa = PBXGroup;
 			children = (
+				B1B31D0A1BA411B7007B9072 /* LoginViewController.h */,
+				B1B31D0B1BA411B7007B9072 /* LoginViewController.m */,
+				B1B31D101BA4145E007B9072 /* RegisterViewController.m */,
+				B1B31D111BA4145E007B9072 /* RegisterViewController.h */,
 				B1EF38D41BA3D23700B11885 /* AppDelegate.h */,
 				B1EF38D51BA3D23700B11885 /* AppDelegate.m */,
 				B1EF38D71BA3D23700B11885 /* ViewController.h */,
@@ -162,6 +175,8 @@
 				B1A060211BA3FBC1006D78E2 /* CNPPopupController.h */,
 				B1A060251BA401A3006D78E2 /* babyCrying.jpeg */,
 				B1A060221BA3FBC1006D78E2 /* CNPPopupController.m */,
+				B1B31D0D1BA411D3007B9072 /* InternetConnectivity.h */,
+				B1B31D0E1BA411D3007B9072 /* InternetConnectivity.m */,
 				B1EF39051BA3D59200B11885 /* Bolts.framework */,
 				B1EF39061BA3D59200B11885 /* Parse.framework */,
 				B1EF39071BA3D59200B11885 /* ParseCrashReporting.framework */,
@@ -303,9 +318,12 @@
 			files = (
 				B1EF38D91BA3D23700B11885 /* ViewController.m in Sources */,
 				B1A060241BA3FBC1006D78E2 /* CNPPopupController.m in Sources */,
+				B1B31D0F1BA411D3007B9072 /* InternetConnectivity.m in Sources */,
+				B1B31D0C1BA411B7007B9072 /* LoginViewController.m in Sources */,
 				B1EF39041BA3D41200B11885 /* CreatePartyViewController.m in Sources */,
 				B1EF38D61BA3D23700B11885 /* AppDelegate.m in Sources */,
 				B1EF38D31BA3D23700B11885 /* main.m in Sources */,
+				B1B31D121BA4145E007B9072 /* RegisterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

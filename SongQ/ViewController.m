@@ -22,6 +22,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
+- (IBAction)logout:(id)sender {
+    [self performSegueWithIdentifier:@"logout" sender:self];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
