@@ -102,6 +102,7 @@
     creatorMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mainCell" forIndexPath:indexPath];
     //same music player as the cell, but this can be accessed outside this method
         if (!self.managedPlayer) {
+            NSLog(@"HEY BITCHES!!!!!!!!!!");
     cell.musicPlayer = [MPMusicPlayerController systemMusicPlayer];
     self.managedPlayer = cell.musicPlayer;
     [cell.musicPlayer setQueueWithItemCollection: self.mediaItemCollection];
@@ -219,10 +220,10 @@
 {
     
     if (self.nextSongToPlay != -1) {
-        [self.managedPlayer setQueueWithQuery:[MPMediaQuery songsQuery]];
-        NSLog(@"%zd is the number of next song to play", self.nextSongToPlay);
         NSUInteger copy = self.nextSongToPlay;
         self.nextSongToPlay = -1;
+        [self.managedPlayer setQueueWithQuery:[MPMediaQuery songsQuery]];
+        NSLog(@"%zd is the number of next song to play", self.nextSongToPlay);
         self.managedPlayer.nowPlayingItem = [[[MPMediaQuery songsQuery] items] objectAtIndex:copy];
         [self reloadData];
         
