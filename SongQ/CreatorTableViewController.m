@@ -8,6 +8,7 @@
 
 #import "CreatorTableViewController.h"
 #import "creatorMainTableViewCell.h"
+#import "Parse/Parse.h"
 @interface CreatorTableViewController ()
 
 @end
@@ -46,9 +47,30 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     creatorMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mainCell" forIndexPath:indexPath];
-    //cell.groupName.text =
+    cell.musicPlayer = [MPMusicPlayerController systemMusicPlayer];
+    [cell.musicPlayer setQueueWithItemCollection: self.mediaItemCollection];
+    [cell.musicPlayer play];
     
-    
+    cell.songTitle.text = cell.musicPlayer.nowPlayingItem.title;
+    cell.songArtist.text = cell.musicPlayer.nowPlayingItem.artist;
+    cell.songAlbum.text = cell.musicPlayer.nowPlayingItem.albumTitle;
+    MPMediaItemArtwork *artwork = [cell.musicPlayer.nowPlayingItem valueForProperty:MPMediaItemPropertyArtwork];
+   
+    /*
+    PFObject *obj = [[PFObject alloc] initWithClassName:@"Party"];
+    UIImage *chosenImage = [artwork imageWithSize:c];
+    NSData *data=UIImagePNGRepresentation(chosenImage);
+    PFFile *fileToSubmit = [PFFile fileWithName:@"image.png" data:data];
+    obj[@"test"] = @"hi";
+    //obj[@"imageOfParty"] = fileToSubmit;
+    [obj saveInBackground];
+     */
+    if (artwork != nil) {
+        NSLog(@"artwork not nil");
+        cell.albumPicture.image = [artwork imageWithSize:CGSizeMake(128, 129)];
+    } else {
+        NSLog(@"artwork nil");
+    }
     
     return cell;
 }

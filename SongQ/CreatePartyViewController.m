@@ -11,6 +11,7 @@
 #import "Parse/Parse.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import "CNPPopupController.h"
+#import "CreatorTableViewController.h"
 
 @interface CreatePartyViewController ()
 
@@ -24,6 +25,8 @@
 @property PFObject *partyToUpload;
 @property  NSArray *mutableToNonmutable;
 @property PFFile *imageFile;
+@property MPMediaItemCollection * selectedMediaItemCollection;
+
 @end
 
 @implementation CreatePartyViewController
@@ -96,7 +99,8 @@
 
 - (void) mediaPicker: (MPMediaPickerController *) mediaPicker didPickMediaItems: (MPMediaItemCollection *) mediaItemCollection
 {
-    
+    self.selectedMediaItemCollection = mediaItemCollection;
+    /*
     NSLog(@"%lu count", (unsigned long)mediaItemCollection.items.count);
     if (mediaItemCollection.items.count == 0)
     {
@@ -111,13 +115,14 @@
              NSLog(@"%@",item.title);
              }
         }
-
+     
+    
     if (mediaItemCollection) {
         
         [_musicPlayer setQueueWithItemCollection: mediaItemCollection];
         [_musicPlayer play];
     }
-    
+    */
     [self dismissModalViewControllerAnimated: YES];
 }
 
@@ -441,14 +446,19 @@
 }
 
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    if ([[segue identifier] isEqualToString:@"toCreatorMainPage"]) {
+        
+        // Get reference to the destination view controller
+        CreatorTableViewController *vc = [segue destinationViewController];
+        
+        // Pass any objects to the view controller here, like...
+        [vc setMediaItemCollection:self.selectedMediaItemCollection];
+        
+        
+    }
 }
-*/
 
 @end

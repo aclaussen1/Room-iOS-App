@@ -70,18 +70,27 @@
                                             <state key="normal" title="Play">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="play:" destination="Sa1-qy-iIU" eventType="touchUpInside" id="p6D-9J-Fdc"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cN1-kV-Se6">
                                             <rect key="frame" x="323" y="379" width="57" height="30"/>
                                             <state key="normal" title="Forward">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="forward:" destination="Sa1-qy-iIU" eventType="touchUpInside" id="EQ1-HQ-AI9"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IMM-MP-Hdu">
                                             <rect key="frame" x="242" y="379" width="35" height="30"/>
                                             <state key="normal" title="Back">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="back:" destination="Sa1-qy-iIU" eventType="touchUpInside" id="y5A-O1-XEM"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -113,7 +122,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="albumPicture" destination="8fr-gY-yKD" id="aPZ-cq-S6Y"/>
+                                    <outlet property="albumPicture" destination="Tee-C9-gLm" id="thm-Wl-UtI"/>
                                     <outlet property="groupImage" destination="Qxy-FH-r6N" id="R5F-G3-OuB"/>
                                     <outlet property="groupName" destination="Vsu-AN-X7d" id="y3Z-BF-FjY"/>
                                     <outlet property="songAlbum" destination="Hct-uQ-iT2" id="Ksq-oZ-0S5"/>
@@ -130,7 +139,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nhj-Py-jrh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1447" y="755"/>
+            <point key="canvasLocation" x="-1542" y="754"/>
         </scene>
         <!--Create Party View Controller-->
         <scene sceneID="mxh-oT-1LA">
@@ -208,7 +217,7 @@
                                 </state>
                                 <connections>
                                     <action selector="createGroup:" destination="Af4-Lv-0UD" eventType="touchUpInside" id="Nmi-3G-XWa"/>
-                                    <segue destination="agx-x2-Dbb" kind="show" id="Quo-A7-1lJ"/>
+                                    <segue destination="agx-x2-Dbb" kind="show" identifier="toCreatorMainPage" id="Quo-A7-1lJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxO-vd-djF">

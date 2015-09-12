@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface creatorMainTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *groupName;
@@ -14,6 +15,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *songTitle;
 @property (weak, nonatomic) IBOutlet UILabel *songArtist;
 @property (weak, nonatomic) IBOutlet UILabel *songAlbum;
-@property (weak, nonatomic) IBOutlet UIView *albumPicture;
+@property (weak, nonatomic) IBOutlet UIImageView *albumPicture;
+
+
+@property MPMusicPlayerController *musicPlayer;
+@property  MPMediaItemCollection * mediaItemCollection;
 
 @end

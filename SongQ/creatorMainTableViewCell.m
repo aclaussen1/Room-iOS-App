@@ -8,7 +8,26 @@
 
 #import "creatorMainTableViewCell.h"
 
+
 @implementation creatorMainTableViewCell
+
+
+
+- (IBAction)play:(id)sender {
+    NSLog(@"hi");
+    if ([self.musicPlayer playbackState] == MPMusicPlaybackStatePlaying) {
+        [self.musicPlayer pause];
+        
+    } else {
+        [self.musicPlayer play];
+        
+    }
+
+}
+- (IBAction)forward:(id)sender {
+}
+- (IBAction)back:(id)sender {
+}
 
 - (void)awakeFromNib {
     // Initialization code
@@ -19,5 +38,6 @@
 
     // Configure the view for the selected state
 }
+
 
 @end
