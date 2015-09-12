@@ -136,10 +136,23 @@
                             <outlet property="delegate" destination="agx-x2-Dbb" id="UgS-b4-4VB"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="CoS-zb-LRm">
+                        <barButtonItem key="rightBarButtonItem" image="HomeBarButtonItem" id="aSb-N1-VOX">
+                            <connections>
+                                <action selector="homeButton:" destination="agx-x2-Dbb" id="Opy-9R-mQ8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="KPq-Ya-Ll9" kind="unwind" identifier="toMainMenu" unwindAction="unwindFromPageToMain:" id="gEs-uB-aEJ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nhj-Py-jrh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="KPq-Ya-Ll9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1542" y="754"/>
+            <point key="canvasLocation" x="-358" y="998"/>
         </scene>
         <!--Create Party View Controller-->
         <scene sceneID="mxh-oT-1LA">
@@ -285,7 +298,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mep-gZ-EFJ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mep-gZ-EFJ">
                                 <rect key="frame" x="277" y="152" width="46" height="30"/>
                                 <state key="normal" title="Create">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -312,15 +325,26 @@
                                     <action selector="logout:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="8Y2-iv-CAI"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="46Q-Wz-SDm">
+                                <rect key="frame" x="254" y="212" width="95" height="30"/>
+                                <state key="normal" title="Existing Party">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="agx-x2-Dbb" kind="show" identifier="toCreatorMainPage" id="uac-Nn-If4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wsY-zC-jwe" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="5xd-EY-osR"/>
-                            <constraint firstItem="NKp-ov-a8q" firstAttribute="top" secondItem="wsY-zC-jwe" secondAttribute="bottom" constant="51" id="6o6-Sx-nkF"/>
-                            <constraint firstItem="NKp-ov-a8q" firstAttribute="leading" secondItem="Mep-gZ-EFJ" secondAttribute="leading" id="Dbg-YT-vju"/>
-                            <constraint firstItem="wsY-zC-jwe" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="FgC-Y1-H5h"/>
-                            <constraint firstItem="Mep-gZ-EFJ" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="132" id="UGm-fa-Fvy"/>
-                            <constraint firstItem="Mep-gZ-EFJ" firstAttribute="centerX" secondItem="wsY-zC-jwe" secondAttribute="centerX" id="kRH-zn-WGt"/>
+                            <constraint firstItem="NKp-ov-a8q" firstAttribute="leading" secondItem="Mep-gZ-EFJ" secondAttribute="leading" id="JJ8-UO-BCS"/>
+                            <constraint firstItem="46Q-Wz-SDm" firstAttribute="top" secondItem="Mep-gZ-EFJ" secondAttribute="bottom" constant="30" id="P6S-Gx-d71"/>
+                            <constraint firstItem="wsY-zC-jwe" firstAttribute="top" secondItem="46Q-Wz-SDm" secondAttribute="bottom" constant="43" id="Zhb-Qx-81S"/>
+                            <constraint firstItem="wsY-zC-jwe" firstAttribute="centerX" secondItem="Mep-gZ-EFJ" secondAttribute="centerX" id="ZrA-Sc-Zkm"/>
+                            <constraint firstItem="NKp-ov-a8q" firstAttribute="centerX" secondItem="46Q-Wz-SDm" secondAttribute="centerX" id="dEo-nb-nyJ"/>
+                            <constraint firstItem="Mep-gZ-EFJ" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="jfi-0v-Myg"/>
+                            <constraint firstItem="NKp-ov-a8q" firstAttribute="top" secondItem="wsY-zC-jwe" secondAttribute="bottom" constant="51" id="ktb-t2-htA"/>
+                            <constraint firstItem="wsY-zC-jwe" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="qds-I8-4n1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="byu-Jt-RMn"/>
@@ -548,4 +572,10 @@
             <point key="canvasLocation" x="-1967" y="329"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="HomeBarButtonItem" width="25" height="25"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Quo-A7-1lJ"/>
+    </inferredMetricsTieBreakers>
 </document>

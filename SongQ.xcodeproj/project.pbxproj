@@ -14,6 +14,7 @@
 		B1B31D121BA4145E007B9072 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B31D101BA4145E007B9072 /* RegisterViewController.m */; };
 		B1B31D161BA41AE8007B9072 /* creatorMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B31D151BA41AE8007B9072 /* creatorMainTableViewCell.m */; };
 		B1B31D191BA41B2C007B9072 /* CreatorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B31D181BA41B2C007B9072 /* CreatorTableViewController.m */; };
+		B1B31D1B1BA42A69007B9072 /* ios7-home-outline2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1B31D1A1BA42A69007B9072 /* ios7-home-outline2x.png */; };
 		B1EF38D31BA3D23700B11885 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EF38D21BA3D23700B11885 /* main.m */; };
 		B1EF38D61BA3D23700B11885 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EF38D51BA3D23700B11885 /* AppDelegate.m */; };
 		B1EF38D91BA3D23700B11885 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EF38D81BA3D23700B11885 /* ViewController.m */; };
@@ -65,6 +66,7 @@
 		B1B31D151BA41AE8007B9072 /* creatorMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = creatorMainTableViewCell.m; sourceTree = "<group>"; };
 		B1B31D171BA41B2C007B9072 /* CreatorTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreatorTableViewController.h; sourceTree = "<group>"; };
 		B1B31D181BA41B2C007B9072 /* CreatorTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreatorTableViewController.m; sourceTree = "<group>"; };
+		B1B31D1A1BA42A69007B9072 /* ios7-home-outline2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios7-home-outline2x.png"; sourceTree = "<group>"; };
 		B1EF38CD1BA3D23700B11885 /* SongQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SongQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1EF38D11BA3D23700B11885 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1EF38D21BA3D23700B11885 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 		B1EF38CF1BA3D23700B11885 /* SongQ */ = {
 			isa = PBXGroup;
 			children = (
+				B1B31D1A1BA42A69007B9072 /* ios7-home-outline2x.png */,
 				B1B31D0A1BA411B7007B9072 /* LoginViewController.h */,
 				B1B31D131BA41ACB007B9072 /* creatorTableView */,
 				B1B31D0B1BA411B7007B9072 /* LoginViewController.m */,
@@ -315,6 +318,7 @@
 			files = (
 				B1EF38DC1BA3D23700B11885 /* Main.storyboard in Resources */,
 				B1A060261BA401A3006D78E2 /* babyCrying.jpeg in Resources */,
+				B1B31D1B1BA42A69007B9072 /* ios7-home-outline2x.png in Resources */,
 				B1EF38E11BA3D23700B11885 /* LaunchScreen.xib in Resources */,
 				B1EF38DE1BA3D23700B11885 /* Images.xcassets in Resources */,
 			);

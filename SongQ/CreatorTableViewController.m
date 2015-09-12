@@ -17,12 +17,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.hidesBackButton = YES;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+- (IBAction)homeButton:(id)sender {
+    [self performSegueWithIdentifier:@"toMainMenu" sender:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,7 +71,8 @@
         }
     }];
     cell.groupName.text = [self.partyUploaded objectForKey:@"nameOfParty"];
-    
+    //doesn't allow user to select this cell
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     /*
     PFObject *obj = [[PFObject alloc] initWithClassName:@"Party"];
     UIImage *chosenImage = [artwork imageWithSize:c];
