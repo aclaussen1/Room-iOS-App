@@ -9,6 +9,7 @@
 #import "CreatorTableViewController.h"
 #import "creatorMainTableViewCell.h"
 #import "Parse/Parse.h"
+#import "infomationTableViewCell.h"
 @interface CreatorTableViewController ()
 
 @end
@@ -41,15 +42,27 @@
     return 1;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0) {
+        return 451;
+    }
+    else if (indexPath.row == 1) {
+        return 50;
+    }
+    
+    else return 302;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 1;
+    return 2;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    if (indexPath.row == 0) {
     creatorMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mainCell" forIndexPath:indexPath];
     cell.musicPlayer = [MPMusicPlayerController systemMusicPlayer];
     [cell.musicPlayer setQueueWithItemCollection: self.mediaItemCollection];
@@ -90,6 +103,13 @@
     }
     
     return cell;
+    } else if (indexPath.row == 1) {
+       infomationTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"infoCell" forIndexPath:indexPath];
+        cell.information.text = @"No votes have been cast yet.";
+        return cell;
+    }
+    //shouldn't return null
+    else return nil;
 }
 
 

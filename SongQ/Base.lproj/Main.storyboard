@@ -10,7 +10,7 @@
             <objects>
                 <tableViewController id="agx-x2-Dbb" customClass="CreatorTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="451" sectionHeaderHeight="22" sectionFooterHeight="22" id="j9Q-cB-2xx">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -130,6 +130,29 @@
                                     <outlet property="songTitle" destination="Uje-dT-YAV" id="URH-aN-bea"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="infoCell" rowHeight="50" id="Fr4-bF-9us" customClass="infomationTableViewCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fr4-bF-9us" id="CgX-ib-08U">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYK-Eo-lE3">
+                                            <rect key="frame" x="8" y="8" width="584" height="33"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="sYK-Eo-lE3" firstAttribute="centerX" secondItem="CgX-ib-08U" secondAttribute="centerX" id="Ur3-o5-dvp"/>
+                                        <constraint firstItem="sYK-Eo-lE3" firstAttribute="leading" secondItem="CgX-ib-08U" secondAttribute="leadingMargin" constant="-7" id="V8i-G0-pjT"/>
+                                        <constraint firstItem="sYK-Eo-lE3" firstAttribute="top" secondItem="CgX-ib-08U" secondAttribute="topMargin" id="beX-XS-ZSk"/>
+                                        <constraint firstItem="sYK-Eo-lE3" firstAttribute="bottom" secondItem="CgX-ib-08U" secondAttribute="bottomMargin" id="lAL-id-sBa"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="information" destination="sYK-Eo-lE3" id="YNs-2T-4na"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="agx-x2-Dbb" id="hl5-el-pTo"/>
@@ -145,6 +168,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="1000"/>
                     <connections>
                         <segue destination="KPq-Ya-Ll9" kind="unwind" identifier="toMainMenu" unwindAction="unwindFromPageToMain:" id="gEs-uB-aEJ"/>
                     </connections>
