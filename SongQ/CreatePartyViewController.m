@@ -23,7 +23,8 @@
 @property (nonatomic) BOOL hasPickedAnImage;
 @property MPMusicPlayerController *musicPlayer;
 @property PFObject *partyToUpload;
-@property  NSArray *mutableToNonmutable;
+@property  NSArray *mutableToNonmutableTitles;
+@property  NSArray *mutableToNonmutableArtists;
 @property PFFile *imageFile;
 @property MPMediaItemCollection * selectedMediaItemCollection;
 
@@ -49,16 +50,21 @@
     self.partyToUpload[@"nameOfParty"] = self.nameOfGroup.text;
     MPMediaQuery *query = [MPMediaQuery songsQuery];
     NSMutableArray *songTitles = [[NSMutableArray alloc] init];
+    NSMutableArray *songArtists = [[NSMutableArray alloc] init];
     for (int x = 0; x < query.items.count; x++)
     {
         MPMediaItem *item = [query.items objectAtIndex:x];
         NSString *title = [item title];
-        NSLog(@"%@",title);
+        NSString *artist = [item artist];
+        NSLog(@"%@, %@",title, artist);
         [songTitles addObject:title];
+        [songArtists addObject:artist];
     }
     //mutableToNonmutable declared in property
-    self.mutableToNonmutable = [songTitles copy];
-    self.partyToUpload[@"Songs"] = self.mutableToNonmutable;
+    self.mutableToNonmutableTitles = [songTitles copy];
+    self.mutableToNonmutableArtists = [songArtists copy];
+    self.partyToUpload[@"Songs"] = self.mutableToNonmutableTitles;
+    self.partyToUpload[@"SongArtists"] = self.mutableToNonmutableArtists;
     
     if (self.imageFile) {
         //user has selected a picture and is not using baby picture
