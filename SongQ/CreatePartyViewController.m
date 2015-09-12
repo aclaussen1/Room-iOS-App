@@ -108,6 +108,7 @@
 - (void) mediaPicker: (MPMediaPickerController *) mediaPicker didPickMediaItems: (MPMediaItemCollection *) mediaItemCollection
 {
     self.selectedMediaItemCollection = mediaItemCollection;
+    
     /*
     NSLog(@"%lu count", (unsigned long)mediaItemCollection.items.count);
     if (mediaItemCollection.items.count == 0)
@@ -301,8 +302,8 @@
     paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
     paragraphStyle.alignment = NSTextAlignmentCenter;
     
-    NSAttributedString *title = [[NSAttributedString alloc] initWithString:@"Set Profile Picture" attributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:24], NSParagraphStyleAttributeName : paragraphStyle}];
-    NSAttributedString *lineOne = [[NSAttributedString alloc] initWithString:@"Before you can create a debate, you must set a profile picture. You can use your iOS device's camera or select a photo from your phone." attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:18], NSParagraphStyleAttributeName : paragraphStyle}];
+    NSAttributedString *title = [[NSAttributedString alloc] initWithString:@"Choose A Picture" attributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:24], NSParagraphStyleAttributeName : paragraphStyle}];
+    NSAttributedString *lineOne = [[NSAttributedString alloc] initWithString:@"You can use your iOS device's camera or select a photo from your phone." attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:18], NSParagraphStyleAttributeName : paragraphStyle}];
     
     //from camera button
     CNPPopupButton *button1 = [[CNPPopupButton alloc] initWithFrame:CGRectMake(0, 0, 200, 60)];
