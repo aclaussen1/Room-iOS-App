@@ -68,6 +68,22 @@
         self.partyToUpload[@"imageOfParty"] = fileToSubmit;
         
     }
+    
+    PFUser *currentU = [PFUser currentUser];
+    NSString *userIDCurrentUser = currentU.objectId;
+    self.partyToUpload[@"createdBy"] = userIDCurrentUser;
+    
+    //the following code block is to delete parties created by the same user as a single user should only have one party open at a time
+    PFQuery *parseQuery = [PFQuery queryWithClassName:@"Party"];
+    [parseQuery whereKey:@"createdBy" equalTo:userIDCurrentUser];
+    NSArray *repeatedParties = [parseQuery findObjects];
+    for (int x = 0; x < repeatedParties.count; x++)
+    {
+        PFObject *object = [repeatedParties objectAtIndex:x];
+        [object deleteEventually];
+    }
+
+
     [self.partyToUpload saveInBackground];
 }
 
@@ -80,6 +96,7 @@
 
 - (void) mediaPicker: (MPMediaPickerController *) mediaPicker didPickMediaItems: (MPMediaItemCollection *) mediaItemCollection
 {
+    
     NSLog(@"%lu count", (unsigned long)mediaItemCollection.items.count);
     if (mediaItemCollection.items.count == 0)
     {
@@ -153,6 +170,7 @@
 }
 - (void) handle_NowPlayingItemChanged: (id) notification
 {
+    NSLog(@"new song playing!");
     MPMediaItem *currentItem = [_musicPlayer nowPlayingItem];
     UIImage *artworkImage = [UIImage imageNamed:@"noArtworkImage.png"];
     MPMediaItemArtwork *artwork = [currentItem valueForProperty: MPMediaItemPropertyArtwork];
@@ -212,6 +230,7 @@
 }
 
 - (void)viewDidLoad {
+    [self registerMediaPlayerNotifcations];
     NSLog(@"in view didload method");
     //first time the view loads, there is no value for hasPickedAnImage. when user slects photo from camera or photo collection, this becomes true
     if (!self.hasPickedAnImage) {
