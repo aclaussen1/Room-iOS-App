@@ -21,6 +21,7 @@
 		B1B31D291BA43AFA007B9072 /* VoteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B31D281BA43AFA007B9072 /* VoteTableViewController.m */; };
 		B1B31D2C1BA44B3C007B9072 /* VoteCasted.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B31D2B1BA44B3C007B9072 /* VoteCasted.m */; };
 		B1B31D2F1BA44D9B007B9072 /* infomationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B31D2E1BA44D9B007B9072 /* infomationTableViewCell.m */; };
+		B1B31D321BA45392007B9072 /* WhatPeopleWantToHearTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B31D311BA45392007B9072 /* WhatPeopleWantToHearTableViewCell.m */; };
 		B1EF38D31BA3D23700B11885 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EF38D21BA3D23700B11885 /* main.m */; };
 		B1EF38D61BA3D23700B11885 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EF38D51BA3D23700B11885 /* AppDelegate.m */; };
 		B1EF38D91BA3D23700B11885 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EF38D81BA3D23700B11885 /* ViewController.m */; };
@@ -42,7 +43,6 @@
 		B1EF391A1BA3D5D300B11885 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1EF39191BA3D5D300B11885 /* CoreLocation.framework */; };
 		B1EF391C1BA3D5D900B11885 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1EF391B1BA3D5D900B11885 /* QuartzCore.framework */; };
 		B1EF391E1BA3D5DE00B11885 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1EF391D1BA3D5DE00B11885 /* Security.framework */; };
-		B1EF39201BA3D5E400B11885 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1EF391F1BA3D5E400B11885 /* StoreKit.framework */; };
 		B1EF39221BA3D5F400B11885 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1EF39211BA3D5F400B11885 /* SystemConfiguration.framework */; };
 		B1EF39241BA3D61C00B11885 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B1EF39231BA3D61C00B11885 /* libz.dylib */; };
 		B1EF39261BA3D62300B11885 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B1EF39251BA3D62300B11885 /* libsqlite3.dylib */; };
@@ -85,6 +85,8 @@
 		B1B31D2B1BA44B3C007B9072 /* VoteCasted.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoteCasted.m; sourceTree = "<group>"; };
 		B1B31D2D1BA44D9B007B9072 /* infomationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infomationTableViewCell.h; sourceTree = "<group>"; };
 		B1B31D2E1BA44D9B007B9072 /* infomationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infomationTableViewCell.m; sourceTree = "<group>"; };
+		B1B31D301BA45392007B9072 /* WhatPeopleWantToHearTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhatPeopleWantToHearTableViewCell.h; sourceTree = "<group>"; };
+		B1B31D311BA45392007B9072 /* WhatPeopleWantToHearTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhatPeopleWantToHearTableViewCell.m; sourceTree = "<group>"; };
 		B1EF38CD1BA3D23700B11885 /* SongQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SongQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1EF38D11BA3D23700B11885 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1EF38D21BA3D23700B11885 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -113,7 +115,6 @@
 		B1EF39191BA3D5D300B11885 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		B1EF391B1BA3D5D900B11885 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B1EF391D1BA3D5DE00B11885 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		B1EF391F1BA3D5E400B11885 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		B1EF39211BA3D5F400B11885 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B1EF39231BA3D61C00B11885 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		B1EF39251BA3D62300B11885 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -127,7 +128,6 @@
 				B1EF39261BA3D62300B11885 /* libsqlite3.dylib in Frameworks */,
 				B1EF39241BA3D61C00B11885 /* libz.dylib in Frameworks */,
 				B1EF39221BA3D5F400B11885 /* SystemConfiguration.framework in Frameworks */,
-				B1EF39201BA3D5E400B11885 /* StoreKit.framework in Frameworks */,
 				B1EF391E1BA3D5DE00B11885 /* Security.framework in Frameworks */,
 				B1EF391C1BA3D5D900B11885 /* QuartzCore.framework in Frameworks */,
 				B1EF391A1BA3D5D300B11885 /* CoreLocation.framework in Frameworks */,
@@ -163,6 +163,8 @@
 				B1B31D181BA41B2C007B9072 /* CreatorTableViewController.m */,
 				B1B31D2D1BA44D9B007B9072 /* infomationTableViewCell.h */,
 				B1B31D2E1BA44D9B007B9072 /* infomationTableViewCell.m */,
+				B1B31D301BA45392007B9072 /* WhatPeopleWantToHearTableViewCell.h */,
+				B1B31D311BA45392007B9072 /* WhatPeopleWantToHearTableViewCell.m */,
 			);
 			name = creatorTableView;
 			sourceTree = "<group>";
@@ -197,7 +199,6 @@
 				B1EF39251BA3D62300B11885 /* libsqlite3.dylib */,
 				B1EF39231BA3D61C00B11885 /* libz.dylib */,
 				B1EF39211BA3D5F400B11885 /* SystemConfiguration.framework */,
-				B1EF391F1BA3D5E400B11885 /* StoreKit.framework */,
 				B1EF391D1BA3D5DE00B11885 /* Security.framework */,
 				B1EF391B1BA3D5D900B11885 /* QuartzCore.framework */,
 				B1EF39191BA3D5D300B11885 /* CoreLocation.framework */,
@@ -331,6 +332,12 @@
 				TargetAttributes = {
 					B1EF38CC1BA3D23700B11885 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 4FB48FQDVK;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
 					};
 					B1EF38E51BA3D23700B11885 = {
 						CreatedOnToolsVersion = 6.4;
@@ -399,6 +406,7 @@
 				B1B31D1F1BA434F8007B9072 /* JoinerTableViewController.m in Sources */,
 				B1B31D221BA43527007B9072 /* JoinerOptionsUITableViewCell.m in Sources */,
 				B1EF38D31BA3D23700B11885 /* main.m in Sources */,
+				B1B31D321BA45392007B9072 /* WhatPeopleWantToHearTableViewCell.m in Sources */,
 				B1B31D121BA4145E007B9072 /* RegisterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,6 +488,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = songq;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -516,6 +525,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = songq;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -525,6 +535,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SongQ",
@@ -532,6 +544,7 @@
 				INFOPLIST_FILE = SongQ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -539,6 +552,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SongQ",
@@ -546,6 +561,7 @@
 				INFOPLIST_FILE = SongQ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

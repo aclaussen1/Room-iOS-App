@@ -10,6 +10,7 @@
 #import "creatorMainTableViewCell.h"
 #import "Parse/Parse.h"
 #import "infomationTableViewCell.h"
+#import "WhatPeopleWantToHearTableViewCell.h"
 @interface CreatorTableViewController ()
 
 @end
@@ -20,12 +21,40 @@
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
     
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.backgroundColor = [UIColor purpleColor];
+    self.refreshControl.tintColor = [UIColor whiteColor];
+    [self.refreshControl addTarget:self
+                            action:@selector(reloadData)
+                  forControlEvents:UIControlEventValueChanged];
+
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+- (void)reloadData
+{
+    // Reload table data
+    [self.tableView reloadData];
+    
+    // End the refreshing
+    if (self.refreshControl) {
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"MMM d, h:mm a"];
+        NSString *title = [NSString stringWithFormat:@"Last update: %@", [formatter stringFromDate:[NSDate date]]];
+        NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:[UIColor whiteColor]
+                                                                    forKey:NSForegroundColorAttributeName];
+        NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:title attributes:attrsDictionary];
+        self.refreshControl.attributedTitle = attributedTitle;
+        
+        [self.refreshControl endRefreshing];
+    }
+}
+
 - (IBAction)homeButton:(id)sender {
     [self performSegueWithIdentifier:@"toMainMenu" sender:self];
 }
@@ -50,14 +79,14 @@
     else if (indexPath.row == 1) {
         return 50;
     }
-    
-    else return 302;
+    //what people want to hear table view cell
+    else return 149;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 2;
+    return 3;
 }
 
 
@@ -104,12 +133,54 @@
     
     return cell;
     } else if (indexPath.row == 1) {
+        
        infomationTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"infoCell" forIndexPath:indexPath];
-        cell.information.text = @"No votes have been cast yet.";
+         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        if([[self.partyUploaded objectForKey:@"votes"] count] ==  0){
+            cell.information.text = @"No votes have been cast yet.";
+        } else {
+            cell.information.text = @"Here's what people want to hear next:";
+        }
+        
         return cell;
     }
     //shouldn't return null
-    else return nil;
+    else {
+        WhatPeopleWantToHearTableViewCell * cell =[tableView dequeueReusableCellWithIdentifier:@"whatPeopleWantToHear" forIndexPath:indexPath];
+        
+        //http://stackoverflow.com/questions/12226776/finding-most-repeated-object-in-array
+        //create count set from array
+        NSCountedSet *setOfObjects = [[NSCountedSet alloc] initWithArray:[self.partyUploaded objectForKey:@"votes"]];
+        
+        //Declaration of objects
+        NSNumber *mostOccurringObject;
+        NSUInteger highestCount = 0;
+        
+        
+        //Iterate in set to find highest count for a object
+        for (NSNumber *intObject in setOfObjects)
+        {
+            NSUInteger tempCount = [setOfObjects countForObject:intObject];
+            if (tempCount > highestCount)
+            {
+                    highestCount = tempCount;
+                    mostOccurringObject = intObject;
+            
+            }
+        }
+        
+        NSLog(@"most occuring number is %@", mostOccurringObject);
+        NSInteger mostOccuringObjectNSInteger = [mostOccurringObject integerValue];
+        NSLog(@"we are dealing with %@", [self.mediaItemCollection.items objectAtIndex:mostOccuringObjectNSInteger]);
+        MPMediaItemArtwork *artwork = [[self.mediaItemCollection.items objectAtIndex:mostOccuringObjectNSInteger] valueForProperty:MPMediaItemPropertyArtwork];
+        if (artwork != nil) {
+            NSLog(@"artwork not nil");
+            cell.albumArt.image = [artwork imageWithSize:CGSizeMake(128, 129)];
+        } else {
+            NSLog(@"artwork nil");
+        }
+        return cell;
+    };
 }
 
 
