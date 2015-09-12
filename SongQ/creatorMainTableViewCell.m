@@ -25,9 +25,9 @@
 
 }
 - (IBAction)forward:(id)sender {
+    [self.musicPlayer skipToNextItem];
 }
-- (IBAction)back:(id)sender {
-}
+
 
 - (void)awakeFromNib {
     // Initialization code

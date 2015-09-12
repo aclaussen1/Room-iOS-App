@@ -86,11 +86,9 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IMM-MP-Hdu">
                                             <rect key="frame" x="242" y="379" width="35" height="30"/>
                                             <state key="normal" title="Back">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
-                                            <connections>
-                                                <action selector="back:" destination="Sa1-qy-iIU" eventType="touchUpInside" id="y5A-O1-XEM"/>
-                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>

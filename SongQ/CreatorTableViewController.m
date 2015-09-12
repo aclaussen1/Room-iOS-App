@@ -12,6 +12,8 @@
 #import "infomationTableViewCell.h"
 #import "WhatPeopleWantToHearTableViewCell.h"
 @interface CreatorTableViewController ()
+@property MPMusicPlayerController *managedPlayer;
+@property NSUInteger nextSongToPlay;
 
 @end
 
@@ -98,9 +100,22 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
     creatorMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mainCell" forIndexPath:indexPath];
+    //same music player as the cell, but this can be accessed outside this method
+        if (!self.managedPlayer) {
     cell.musicPlayer = [MPMusicPlayerController systemMusicPlayer];
+    self.managedPlayer = cell.musicPlayer;
     [cell.musicPlayer setQueueWithItemCollection: self.mediaItemCollection];
     [cell.musicPlayer play];
+        
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+        
+    [notificationCenter addObserver: self
+                            selector: @selector (handle_NowPlayingItemChanged:)
+                                name: MPMusicPlayerControllerNowPlayingItemDidChangeNotification
+                                object: cell.musicPlayer];
+        
+        [cell.musicPlayer beginGeneratingPlaybackNotifications];
+        }
     
     cell.songTitle.text = cell.musicPlayer.nowPlayingItem.title;
     cell.songArtist.text = cell.musicPlayer.nowPlayingItem.artist;
@@ -182,6 +197,7 @@
         
         NSLog(@"most occuring number is %@", mostOccurringObject);
         NSInteger mostOccuringObjectNSInteger = [mostOccurringObject integerValue];
+        self.nextSongToPlay = mostOccuringObjectNSInteger;
         NSLog(@"we are dealing with %@", [self.mediaItemCollection.items objectAtIndex:mostOccuringObjectNSInteger]);
         MPMediaItemArtwork *artwork = [[self.mediaItemCollection.items objectAtIndex:mostOccuringObjectNSInteger] valueForProperty:MPMediaItemPropertyArtwork];
         if (artwork != nil) {
@@ -194,10 +210,28 @@
         cell.title.text = [[self.mediaItemCollection.items objectAtIndex:mostOccuringObjectNSInteger] title];
         cell.artist.text = [[self.mediaItemCollection.items objectAtIndex:mostOccuringObjectNSInteger] artist];
         cell.album.text = [[self.mediaItemCollection.items objectAtIndex:mostOccuringObjectNSInteger] albumTitle];
-        cell.votes.text = [NSString stringWithFormat:@"Votes: %ld", (long)mostOccuringObjectNSInteger ];
+        cell.votes.text = [NSString stringWithFormat:@"Votes: %ld", (long)highestCount ];
         return cell;
     };
 }
+
+- (void) handle_NowPlayingItemChanged: (id) notification
+{
+    
+    if (self.nextSongToPlay != -1) {
+        [self.managedPlayer setQueueWithQuery:[MPMediaQuery songsQuery]];
+        NSLog(@"%zd is the number of next song to play", self.nextSongToPlay);
+        NSUInteger copy = self.nextSongToPlay;
+        self.nextSongToPlay = -1;
+        self.managedPlayer.nowPlayingItem = [[[MPMediaQuery songsQuery] items] objectAtIndex:copy];
+        [self reloadData];
+        
+    } else {
+        [self reloadData];
+    }
+}
+
+
 
 
 @end
