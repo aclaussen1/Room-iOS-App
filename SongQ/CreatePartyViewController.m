@@ -65,7 +65,8 @@
     self.mutableToNonmutableArtists = [songArtists copy];
     self.partyToUpload[@"Songs"] = self.mutableToNonmutableTitles;
     self.partyToUpload[@"SongArtists"] = self.mutableToNonmutableArtists;
-    
+    //empty array
+    self.partyToUpload[@"votes"] = @[];
     if (self.imageFile) {
         //user has selected a picture and is not using baby picture
         self.partyToUpload[@"imageOfParty"] = self.imageFile;

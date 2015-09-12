@@ -14,6 +14,7 @@
 @property NSArray *songArtists;
 @property PFQuery *query;
 @property PFObject *party;
+@property NSMutableArray *votes;
 
 @end
 
@@ -26,6 +27,7 @@
     [self.query whereKey:@"objectId" equalTo:self.partyObjectID];
     self.party = [self.query getFirstObject];
     
+    self.votes = [NSMutableArray arrayWithArray:self.party[@"votes"] ];
     self.songTitles = self.party[@"Songs"];
     self.songArtists = self.party[@"SongArtists"];
     for (int x = 0; x < self.songTitles.count; x++)
@@ -70,6 +72,17 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSNumber *songNumber = [NSNumber numberWithInt:indexPath.row];
+    [self.votes addObject:songNumber];
+    NSArray *newVotes = [self.votes copy];
+    self.party[@"votes"] = newVotes;
+    [self.party saveInBackground];
+    
+    
+    
+}
 
 /*
 // Override to support conditional editing of the table view.

@@ -19,6 +19,7 @@
 		B1B31D221BA43527007B9072 /* JoinerOptionsUITableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B31D211BA43527007B9072 /* JoinerOptionsUITableViewCell.m */; };
 		B1B31D261BA43AE0007B9072 /* VoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B31D251BA43AE0007B9072 /* VoteTableViewCell.m */; };
 		B1B31D291BA43AFA007B9072 /* VoteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B31D281BA43AFA007B9072 /* VoteTableViewController.m */; };
+		B1B31D2C1BA44B3C007B9072 /* VoteCasted.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B31D2B1BA44B3C007B9072 /* VoteCasted.m */; };
 		B1EF38D31BA3D23700B11885 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EF38D21BA3D23700B11885 /* main.m */; };
 		B1EF38D61BA3D23700B11885 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EF38D51BA3D23700B11885 /* AppDelegate.m */; };
 		B1EF38D91BA3D23700B11885 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EF38D81BA3D23700B11885 /* ViewController.m */; };
@@ -79,6 +80,8 @@
 		B1B31D251BA43AE0007B9072 /* VoteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoteTableViewCell.m; sourceTree = "<group>"; };
 		B1B31D271BA43AFA007B9072 /* VoteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VoteTableViewController.h; path = ../VoteTableViewController.h; sourceTree = "<group>"; };
 		B1B31D281BA43AFA007B9072 /* VoteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VoteTableViewController.m; path = ../VoteTableViewController.m; sourceTree = "<group>"; };
+		B1B31D2A1BA44B3C007B9072 /* VoteCasted.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoteCasted.h; sourceTree = "<group>"; };
+		B1B31D2B1BA44B3C007B9072 /* VoteCasted.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoteCasted.m; sourceTree = "<group>"; };
 		B1EF38CD1BA3D23700B11885 /* SongQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SongQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1EF38D11BA3D23700B11885 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1EF38D21BA3D23700B11885 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -177,6 +180,8 @@
 				B1B31D281BA43AFA007B9072 /* VoteTableViewController.m */,
 				B1B31D241BA43AE0007B9072 /* VoteTableViewCell.h */,
 				B1B31D251BA43AE0007B9072 /* VoteTableViewCell.m */,
+				B1B31D2A1BA44B3C007B9072 /* VoteCasted.h */,
+				B1B31D2B1BA44B3C007B9072 /* VoteCasted.m */,
 			);
 			name = SongVote;
 			sourceTree = "<group>";
@@ -214,9 +219,9 @@
 			children = (
 				B1B31D1A1BA42A69007B9072 /* ios7-home-outline2x.png */,
 				B1B31D0A1BA411B7007B9072 /* LoginViewController.h */,
+				B1B31D0B1BA411B7007B9072 /* LoginViewController.m */,
 				B1B31D1C1BA434E3007B9072 /* joiner */,
 				B1B31D131BA41ACB007B9072 /* creatorTableView */,
-				B1B31D0B1BA411B7007B9072 /* LoginViewController.m */,
 				B1B31D231BA43A9A007B9072 /* SongVote */,
 				B1B31D101BA4145E007B9072 /* RegisterViewController.m */,
 				B1B31D111BA4145E007B9072 /* RegisterViewController.h */,
@@ -379,6 +384,7 @@
 				B1A060241BA3FBC1006D78E2 /* CNPPopupController.m in Sources */,
 				B1B31D291BA43AFA007B9072 /* VoteTableViewController.m in Sources */,
 				B1B31D261BA43AE0007B9072 /* VoteTableViewCell.m in Sources */,
+				B1B31D2C1BA44B3C007B9072 /* VoteCasted.m in Sources */,
 				B1B31D0F1BA411D3007B9072 /* InternetConnectivity.m in Sources */,
 				B1B31D0C1BA411B7007B9072 /* LoginViewController.m in Sources */,
 				B1EF39041BA3D41200B11885 /* CreatePartyViewController.m in Sources */,

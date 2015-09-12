@@ -388,6 +388,7 @@
                                 <connections>
                                     <outlet property="songArtist" destination="pce-nG-QrP" id="WRb-Da-FWz"/>
                                     <outlet property="songTitle" destination="fVV-hT-If9" id="dJp-Pd-AbA"/>
+                                    <segue destination="3EV-BL-Xyv" kind="show" id="wm9-no-f3E"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -400,6 +401,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vpk-bm-lGU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1406" y="241"/>
+        </scene>
+        <!--Vote Casted-->
+        <scene sceneID="aHz-s1-2tz">
+            <objects>
+                <viewController id="3EV-BL-Xyv" customClass="VoteCasted" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pnd-Lb-v4R"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gqr-lc-42S"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="411-wD-46W">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Your Vote has been cast" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rub-eu-hwo">
+                                <rect key="frame" x="16" y="287" width="562" height="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="rub-eu-hwo" secondAttribute="centerY" id="Y0A-Ys-V64"/>
+                            <constraint firstAttribute="centerX" secondItem="rub-eu-hwo" secondAttribute="centerX" id="lQ8-KW-moi"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="mkF-vW-Mvm">
+                        <barButtonItem key="rightBarButtonItem" image="HomeBarButtonItem" id="Dou-h1-F8O">
+                            <connections>
+                                <action selector="homeButton:" destination="3EV-BL-Xyv" id="Bu4-PG-iB2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="NuM-RI-ft8" kind="unwind" identifier="toHome" unwindAction="unwindFromPageToMain:" id="5wi-tt-gSO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UvA-ll-j5u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="NuM-RI-ft8" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2081" y="249"/>
         </scene>
         <!--Joiner Table View Controller-->
         <scene sceneID="kqE-wt-FHd">
