@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
 
-@interface CreatePartyViewController : UIViewController <MPMediaPickerControllerDelegate>
+@interface CreatePartyViewController : UIViewController <MPMediaPickerControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextViewDelegate>
 
 @end

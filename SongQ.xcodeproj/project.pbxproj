@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B1A060241BA3FBC1006D78E2 /* CNPPopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A060221BA3FBC1006D78E2 /* CNPPopupController.m */; };
+		B1A060261BA401A3006D78E2 /* babyCrying.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B1A060251BA401A3006D78E2 /* babyCrying.jpeg */; };
 		B1EF38D31BA3D23700B11885 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EF38D21BA3D23700B11885 /* main.m */; };
 		B1EF38D61BA3D23700B11885 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EF38D51BA3D23700B11885 /* AppDelegate.m */; };
 		B1EF38D91BA3D23700B11885 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EF38D81BA3D23700B11885 /* ViewController.m */; };
@@ -45,6 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B1A060211BA3FBC1006D78E2 /* CNPPopupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNPPopupController.h; sourceTree = "<group>"; };
+		B1A060221BA3FBC1006D78E2 /* CNPPopupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNPPopupController.m; sourceTree = "<group>"; };
+		B1A060251BA401A3006D78E2 /* babyCrying.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = babyCrying.jpeg; sourceTree = "<group>"; };
 		B1EF38CD1BA3D23700B11885 /* SongQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SongQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1EF38D11BA3D23700B11885 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1EF38D21BA3D23700B11885 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -154,6 +159,9 @@
 				B1EF39031BA3D41200B11885 /* CreatePartyViewController.m */,
 				B1EF38DD1BA3D23700B11885 /* Images.xcassets */,
 				B1EF38DF1BA3D23700B11885 /* LaunchScreen.xib */,
+				B1A060211BA3FBC1006D78E2 /* CNPPopupController.h */,
+				B1A060251BA401A3006D78E2 /* babyCrying.jpeg */,
+				B1A060221BA3FBC1006D78E2 /* CNPPopupController.m */,
 				B1EF39051BA3D59200B11885 /* Bolts.framework */,
 				B1EF39061BA3D59200B11885 /* Parse.framework */,
 				B1EF39071BA3D59200B11885 /* ParseCrashReporting.framework */,
@@ -273,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1EF38DC1BA3D23700B11885 /* Main.storyboard in Resources */,
+				B1A060261BA401A3006D78E2 /* babyCrying.jpeg in Resources */,
 				B1EF38E11BA3D23700B11885 /* LaunchScreen.xib in Resources */,
 				B1EF38DE1BA3D23700B11885 /* Images.xcassets in Resources */,
 			);
@@ -293,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1EF38D91BA3D23700B11885 /* ViewController.m in Sources */,
+				B1A060241BA3FBC1006D78E2 /* CNPPopupController.m in Sources */,
 				B1EF39041BA3D41200B11885 /* CreatePartyViewController.m in Sources */,
 				B1EF38D61BA3D23700B11885 /* AppDelegate.m in Sources */,
 				B1EF38D31BA3D23700B11885 /* main.m in Sources */,
@@ -498,6 +508,7 @@
 				B1EF38F21BA3D23700B11885 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B1EF38F31BA3D23700B11885 /* Build configuration list for PBXNativeTarget "SongQTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +517,7 @@
 				B1EF38F51BA3D23700B11885 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

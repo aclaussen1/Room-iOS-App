@@ -10,21 +10,25 @@
 #import "AppDelegate.h"
 #import "Parse/Parse.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import "CNPPopupController.h"
 
 @interface CreatePartyViewController ()
-@property (weak, nonatomic) IBOutlet UIImageView *artworkImage;
+
 
 @property (weak, nonatomic) IBOutlet UIButton *playorpause;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *artistLabel;
-@property (weak, nonatomic) IBOutlet UILabel *albumLabel;
-@property (weak, nonatomic) IBOutlet MPVolumeView *volumeView;
+@property (nonatomic, strong) CNPPopupController *popupController;
+@property (weak, nonatomic) IBOutlet UITextField *nameOfGroup;
+@property (weak, nonatomic) IBOutlet UIImageView *partyImage;
+@property (nonatomic) BOOL hasPickedAnImage;
 @property MPMusicPlayerController *musicPlayer;
+@property PFObject *partyToUpload;
+@property  NSArray *mutableToNonmutable;
+@property PFFile *imageFile;
 @end
 
 @implementation CreatePartyViewController
-- (IBAction)volumeChanged:(id)sender {
-}
+
+
 - (IBAction)showMediaPicker:(id)sender {
     MPMediaPickerController *mediaPicker = [[MPMediaPickerController alloc] initWithMediaTypes: MPMediaTypeAny];
     
@@ -34,6 +38,44 @@
     
     [self presentModalViewController:mediaPicker animated:YES];
     
+}
+- (IBAction)createGroup:(id)sender {
+    
+    
+    self.partyToUpload = [PFObject objectWithClassName:@"Party"];
+    self.partyToUpload[@"nameOfParty"] = self.nameOfGroup.text;
+    MPMediaQuery *query = [MPMediaQuery songsQuery];
+    NSMutableArray *songTitles = [[NSMutableArray alloc] init];
+    for (int x = 0; x < query.items.count; x++)
+    {
+        MPMediaItem *item = [query.items objectAtIndex:x];
+        NSString *title = [item title];
+        NSLog(@"%@",title);
+        [songTitles addObject:title];
+    }
+    //mutableToNonmutable declared in property
+    self.mutableToNonmutable = [songTitles copy];
+    self.partyToUpload[@"Songs"] = self.mutableToNonmutable;
+    
+    if (self.imageFile) {
+        //user has selected a picture and is not using baby picture
+        self.partyToUpload[@"imageOfParty"] = self.imageFile;
+    } else {
+        //user wants to use baby picture
+        UIImage *chosenImage = [UIImage imageNamed:@"Image"];
+        NSData *data=UIImagePNGRepresentation(chosenImage);
+        PFFile *fileToSubmit = [PFFile fileWithName:@"image.png" data:data];
+        self.partyToUpload[@"imageOfParty"] = fileToSubmit;
+        
+    }
+    [self.partyToUpload saveInBackground];
+}
+
+
+
+
+-(void)dismissKeyboard {
+    [self.nameOfGroup resignFirstResponder];
 }
 
 - (void) mediaPicker: (MPMediaPickerController *) mediaPicker didPickMediaItems: (MPMediaItemCollection *) mediaItemCollection
@@ -119,27 +161,27 @@
         artworkImage = [artwork imageWithSize: CGSizeMake (200, 200)];
     }
     
-    [_artworkImage setImage:artworkImage];
+    //[_artworkImage setImage:artworkImage];
     
     NSString *titleString = [currentItem valueForProperty:MPMediaItemPropertyTitle];
     if (titleString) {
-        _titleLabel.text = [NSString stringWithFormat:@"Title: %@",titleString];
+        //_titleLabel.text = [NSString stringWithFormat:@"Title: %@",titleString];
     } else {
-        _titleLabel.text = @"Title: Unknown title";
+        //_titleLabel.text = @"Title: Unknown title";
     }
     
     NSString *artistString = [currentItem valueForProperty:MPMediaItemPropertyArtist];
     if (artistString) {
-        _artistLabel.text = [NSString stringWithFormat:@"Artist: %@",artistString];
+        //_artistLabel.text = [NSString stringWithFormat:@"Artist: %@",artistString];
     } else {
-        _artistLabel.text = @"Artist: Unknown artist";
+        //_artistLabel.text = @"Artist: Unknown artist";
     }
     
     NSString *albumString = [currentItem valueForProperty:MPMediaItemPropertyAlbumTitle];
     if (albumString) {
-        _albumLabel.text = [NSString stringWithFormat:@"Album: %@",albumString];
+        //_albumLabel.text = [NSString stringWithFormat:@"Album: %@",albumString];
     } else {
-        _albumLabel.text = @"Album: Unknown album";
+        //_albumLabel.text = @"Album: Unknown album";
     }
     
 }
@@ -170,14 +212,27 @@
 }
 
 - (void)viewDidLoad {
+    NSLog(@"in view didload method");
+    //first time the view loads, there is no value for hasPickedAnImage. when user slects photo from camera or photo collection, this becomes true
+    if (!self.hasPickedAnImage) {
+        self.partyImage.image = [UIImage imageNamed:@"Image"];
+    }
+    
+    //to create circlular image
+    self.partyImage.layer.cornerRadius = self.partyImage.frame.size.width / 2;
+    self.partyImage.clipsToBounds = YES;
+    
+    //to dismiss keyboard, regognize taps
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+    
+    //is this needed?
     [MPVolumeView alloc];
     [super viewDidLoad];
     
-    /*
-    PFObject *testObject = [PFObject objectWithClassName:@"Party"];
-    testObject[@"test"] = @"bar";
-    [testObject saveInBackground];
-     */
+    
     _musicPlayer = [MPMusicPlayerController systemMusicPlayer];
     //[_volumeSlider setValue:[_musicPlayer volume]];
     
@@ -203,10 +258,169 @@
     //[myPlayer play];
 }
 
+- (IBAction)setGroupImage:(id)sender {
+    [self showProfilePicturePopupWithStyle:CNPPopupStyleCentered];
+    
+}
+
+- (void)showProfilePicturePopupWithStyle:(CNPPopupStyle)popupStyle {
+    
+    NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
+    paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
+    paragraphStyle.alignment = NSTextAlignmentCenter;
+    
+    NSAttributedString *title = [[NSAttributedString alloc] initWithString:@"Set Profile Picture" attributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:24], NSParagraphStyleAttributeName : paragraphStyle}];
+    NSAttributedString *lineOne = [[NSAttributedString alloc] initWithString:@"Before you can create a debate, you must set a profile picture. You can use your iOS device's camera or select a photo from your phone." attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:18], NSParagraphStyleAttributeName : paragraphStyle}];
+    
+    //from camera button
+    CNPPopupButton *button1 = [[CNPPopupButton alloc] initWithFrame:CGRectMake(0, 0, 200, 60)];
+    [button1 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    button1.titleLabel.font = [UIFont boldSystemFontOfSize:18];
+    [button1 setTitle:@"Photo from Camera" forState:UIControlStateNormal];
+    button1.backgroundColor = [UIColor colorWithRed:0.46 green:0.8 blue:1.0 alpha:1.0];
+    button1.layer.cornerRadius = 4;
+    button1.selectionHandler = ^(CNPPopupButton *button){
+        [self.popupController dismissPopupControllerAnimated:YES];
+        [self takePhoto];
+        
+    };
+    
+    //from existing Photos button
+    CNPPopupButton *button2= [[CNPPopupButton alloc] initWithFrame:CGRectMake(0, 0, 200, 60)];
+    [button2 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    button2.titleLabel.font = [UIFont boldSystemFontOfSize:18];
+    [button2 setTitle:@"Existing Photos" forState:UIControlStateNormal];
+    button2.backgroundColor = [UIColor colorWithRed:0.46 green:0.8 blue:1.0 alpha:1.0];
+    button2.layer.cornerRadius = 4;
+    button2.selectionHandler = ^(CNPPopupButton *button){
+        [self.popupController dismissPopupControllerAnimated:YES];
+        [self selectPhoto];
+        
+    };
+    
+    //close the popup
+    CNPPopupButton *button3 = [[CNPPopupButton alloc] initWithFrame:CGRectMake(0, 0, 200, 60)];
+    [button3 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    button3.titleLabel.font = [UIFont boldSystemFontOfSize:18];
+    [button3 setTitle:@"Close Me" forState:UIControlStateNormal];
+    button3.backgroundColor = [UIColor colorWithRed:1.0 green:0.8 blue:.46 alpha:1.0];
+    button3.layer.cornerRadius = 4;
+    button3.selectionHandler = ^(CNPPopupButton *button){
+        [self.popupController dismissPopupControllerAnimated:YES];
+        NSLog(@"Block for button: %@", button.titleLabel.text);
+    };
+    
+    
+    UILabel *titleLabel = [[UILabel alloc] init];
+    titleLabel.numberOfLines = 0;
+    titleLabel.attributedText = title;
+    
+    UILabel *lineOneLabel = [[UILabel alloc] init];
+    lineOneLabel.numberOfLines = 0;
+    lineOneLabel.attributedText = lineOne;
+    
+    
+    
+    self.popupController = [[CNPPopupController alloc] initWithContents:@[titleLabel, lineOneLabel, button1, button2, button3]];
+    
+    
+    self.popupController.theme = [CNPPopupTheme defaultTheme];
+    self.popupController.theme.popupStyle = popupStyle;
+    self.popupController.delegate = self;
+    [self.popupController presentPopupControllerAnimated:YES];
+}
+
+- (void)takePhoto {
+    
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    
+    [self presentViewController:picker animated:YES completion:NULL];
+    
+}
+
+- (void)selectPhoto {
+    
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    [self presentViewController:picker animated:YES completion:NULL];
+    
+    
+}
+
+#pragma mark - Image Picker Controller delegate methods
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    
+    
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    NSData *data=UIImagePNGRepresentation(chosenImage);
+    self.imageFile = [PFFile fileWithName:@"image.png" data:data];
+    [self.partyImage setImage:chosenImage];
+    self.hasPickedAnImage = TRUE;
+    
+    //[imageFile saveInBackground];
+    
+    
+    //[self.currentUser setObject:imageFile forKey:@"profilePicture"];
+    //[self.currentUser saveInBackground];
+    
+    
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+    
+    [self viewDidLoad];
+    
+    
+    
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+}
+
+
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
+
+
+#pragma mark - UITextFieldDelegate methods
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    NSLog(@"in textFieldShouldReturn: method");
+    [_nameOfGroup resignFirstResponder];
+    return NO;
+}
+
+
+#pragma mark - CNPPopupController Delegate
+
+- (void)popupController:(CNPPopupController *)controller didDismissWithButtonTitle:(NSString *)title {
+    NSLog(@"Dismissed with button title: %@", title);
+    
+}
+
+- (void)popupControllerDidPresent:(CNPPopupController *)controller {
+    NSLog(@"Popup controller presented.");
+}
+
 
 /*
 #pragma mark - Navigation

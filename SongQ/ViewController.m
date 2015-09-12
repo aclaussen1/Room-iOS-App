@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "Parse/Parse.h"
 
 @interface ViewController ()
 
@@ -15,6 +16,9 @@
 @implementation ViewController
 
 - (void)viewDidLoad {
+    
+    PFUser *currentUser = [PFUser currentUser];
+    NSLog(@"%@", currentUser);
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
