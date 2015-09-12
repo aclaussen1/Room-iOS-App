@@ -357,6 +357,50 @@
             </objects>
             <point key="canvasLocation" x="67" y="256"/>
         </scene>
+        <!--Vote Table View Controller-->
+        <scene sceneID="8UN-3z-49w">
+            <objects>
+                <tableViewController id="ekv-oS-EZi" customClass="VoteTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="78" sectionHeaderHeight="22" sectionFooterHeight="22" id="l2p-cD-PDE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongPick" rowHeight="78" id="2hD-h6-ptf" customClass="VoteTableViewCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2hD-h6-ptf" id="7Xg-zE-nS6">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pce-nG-QrP">
+                                            <rect key="frame" x="8" y="39" width="584" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVV-hT-If9">
+                                            <rect key="frame" x="8" y="8" width="584" height="23"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="songArtist" destination="pce-nG-QrP" id="WRb-Da-FWz"/>
+                                    <outlet property="songTitle" destination="fVV-hT-If9" id="dJp-Pd-AbA"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ekv-oS-EZi" id="bQr-3Z-sjo"/>
+                            <outlet property="delegate" destination="ekv-oS-EZi" id="097-5V-Yut"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vpk-bm-lGU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1406" y="241"/>
+        </scene>
         <!--Joiner Table View Controller-->
         <scene sceneID="kqE-wt-FHd">
             <objects>
@@ -399,6 +443,7 @@
                                 <connections>
                                     <outlet property="imageOfGroup" destination="jgD-2F-tvW" id="Xg5-Wp-3VK"/>
                                     <outlet property="nameOfGroup" destination="6nm-Kj-NNn" id="4Zf-xg-q7o"/>
+                                    <segue destination="ekv-oS-EZi" kind="show" identifier="toVoteTable" id="fJn-l0-0in"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

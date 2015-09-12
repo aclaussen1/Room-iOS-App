@@ -1,28 +1,38 @@
 //
-//  JoinerTableViewController.m
+//  VoteTableViewController.m
 //  SongQ
 //
 //  Created by Alexander Claussen on 9/12/15.
 //  Copyright (c) 2015 com.MudLord. All rights reserved.
 //
 
-#import "JoinerTableViewController.h"
-#import "Parse/Parse.h"
-#import "JoinerOptionsUITableViewCell.h"
 #import "VoteTableViewController.h"
-@interface JoinerTableViewController ()
-@property PFQuery *parseQuery;
-@property NSArray *parties;
-@property NSString *partyThatUserSelected;
+#import "VoteTableViewCell.h"
+
+@interface VoteTableViewController ()
+@property NSArray *songTitles;
+@property NSArray *songArtists;
+@property PFQuery *query;
+@property PFObject *party;
+
 @end
 
-@implementation JoinerTableViewController
+@implementation VoteTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.parseQuery = [PFQuery queryWithClassName:@"Party"];
-    self.parties = [self.parseQuery findObjects];
+    self.query = [PFQuery queryWithClassName:@"Party"];
+    NSLog(@"My partyobjectId is %@", self.partyObjectID);
+    [self.query whereKey:@"objectId" equalTo:self.partyObjectID];
+    self.party = [self.query getFirstObject];
     
+    self.songTitles = self.party[@"Songs"];
+    self.songArtists = self.party[@"SongArtists"];
+    for (int x = 0; x < self.songTitles.count; x++)
+    {
+        NSLog(@"%@ dick", [self.songTitles objectAtIndex:x]);
+    }
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -42,38 +52,21 @@
     return 1;
 }
 
-- (void)tableView:(UITableView *)tableView
-didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    self.partyThatUserSelected = [[self.parties objectAtIndex:indexPath.row] objectId];
-    //NSLog(@"%@ is the partyUploaded", self.partyThatUserSelected);
-    NSLog(@"%@ is the objectID of the party the user selected", [[self.parties objectAtIndex:indexPath.row] objectId]);
-    
-    
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.parties.count;
+
+    return [self.songTitles count];
+    
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-   JoinerOptionsUITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"joinOption" forIndexPath:indexPath];
+   
+    VoteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SongPick" forIndexPath:indexPath];
     
-    cell.nameOfGroup.text = [self.parties objectAtIndex:indexPath.row][@"nameOfParty"];
+    cell.songTitle.text = [self.songTitles objectAtIndex:indexPath.row];
+    cell.songArtist.text = [self.songArtists objectAtIndex:indexPath.row];
+ 
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        PFFile *file = [[self.parties objectAtIndex:indexPath.row] objectForKey:@"imageOfParty"];
-        UIImage *image = [UIImage imageWithData:[file getData]];
-        // Use main thread to update the view. View changes are always handled through main thread
-        dispatch_async(dispatch_get_main_queue(), ^{
-            // Refresh image view here
-            cell.imageOfGroup.image = image;
-            cell.imageOfGroup.layer.cornerRadius = cell.imageOfGroup.frame.size.width / 2 ;
-            cell.imageOfGroup.clipsToBounds = YES;
-            [cell setNeedsLayout];
-        });
-    });
     return cell;
 }
 
@@ -112,24 +105,14 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 */
 
-
+/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"toVoteTable"]) {
-        NSIndexPath *path = [self.tableView indexPathForSelectedRow];
-        NSString *party = [[self.parties objectAtIndex:path.row] objectId];
-        // Get reference to the destination view controller
-        VoteTableViewController *vc = [segue destinationViewController];
-        
-        // Pass any objects to the view controller here, like...
-        //NSLog(@"the object id of what i am sending is: %@", self.partyThatUserSelected[@"objectId"]);
-        [vc setPartyObjectID:party];
-        
-        
-    }
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
 }
-
+*/
 
 @end
