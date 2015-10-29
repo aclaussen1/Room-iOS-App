@@ -28,7 +28,7 @@
 		B1EF38DC1BA3D23700B11885 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1EF38DA1BA3D23700B11885 /* Main.storyboard */; };
 		B1EF38DE1BA3D23700B11885 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1EF38DD1BA3D23700B11885 /* Images.xcassets */; };
 		B1EF38E11BA3D23700B11885 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1EF38DF1BA3D23700B11885 /* LaunchScreen.xib */; };
-		B1EF38ED1BA3D23700B11885 /* SongQTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EF38EC1BA3D23700B11885 /* SongQTests.m */; };
+		B1EF38ED1BA3D23700B11885 /* RoomTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EF38EC1BA3D23700B11885 /* RoomTests.m */; };
 		B1EF39041BA3D41200B11885 /* CreatePartyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EF39031BA3D41200B11885 /* CreatePartyViewController.m */; };
 		B1EF390C1BA3D59200B11885 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1EF39051BA3D59200B11885 /* Bolts.framework */; };
 		B1EF390D1BA3D59200B11885 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1EF39061BA3D59200B11885 /* Parse.framework */; };
@@ -87,7 +87,7 @@
 		B1B31D2E1BA44D9B007B9072 /* infomationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infomationTableViewCell.m; sourceTree = "<group>"; };
 		B1B31D301BA45392007B9072 /* WhatPeopleWantToHearTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhatPeopleWantToHearTableViewCell.h; sourceTree = "<group>"; };
 		B1B31D311BA45392007B9072 /* WhatPeopleWantToHearTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhatPeopleWantToHearTableViewCell.m; sourceTree = "<group>"; };
-		B1EF38CD1BA3D23700B11885 /* SongQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SongQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1EF38CD1BA3D23700B11885 /* Room.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Room.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1EF38D11BA3D23700B11885 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1EF38D21BA3D23700B11885 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B1EF38D41BA3D23700B11885 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -97,9 +97,9 @@
 		B1EF38DB1BA3D23700B11885 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B1EF38DD1BA3D23700B11885 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B1EF38E01BA3D23700B11885 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		B1EF38E61BA3D23700B11885 /* SongQTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SongQTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1EF38E61BA3D23700B11885 /* Room.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Room.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1EF38EB1BA3D23700B11885 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B1EF38EC1BA3D23700B11885 /* SongQTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SongQTests.m; sourceTree = "<group>"; };
+		B1EF38EC1BA3D23700B11885 /* RoomTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoomTests.m; sourceTree = "<group>"; };
 		B1EF39021BA3D41200B11885 /* CreatePartyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreatePartyViewController.h; sourceTree = "<group>"; };
 		B1EF39031BA3D41200B11885 /* CreatePartyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreatePartyViewController.m; sourceTree = "<group>"; };
 		B1EF39051BA3D59200B11885 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -205,8 +205,8 @@
 				B1EF39171BA3D5CD00B11885 /* CoreGraphics.framework */,
 				B1EF39151BA3D5C300B11885 /* CFNetwork.framework */,
 				B1EF39131BA3D5BD00B11885 /* AudioToolbox.framework */,
-				B1EF38CF1BA3D23700B11885 /* SongQ */,
-				B1EF38E91BA3D23700B11885 /* SongQTests */,
+				B1EF38CF1BA3D23700B11885 /* Room */,
+				B1EF38E91BA3D23700B11885 /* RoomTests */,
 				B1EF38CE1BA3D23700B11885 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -214,13 +214,13 @@
 		B1EF38CE1BA3D23700B11885 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B1EF38CD1BA3D23700B11885 /* SongQ.app */,
-				B1EF38E61BA3D23700B11885 /* SongQTests.xctest */,
+				B1EF38CD1BA3D23700B11885 /* Room.app */,
+				B1EF38E61BA3D23700B11885 /* Room.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B1EF38CF1BA3D23700B11885 /* SongQ */ = {
+		B1EF38CF1BA3D23700B11885 /* Room */ = {
 			isa = PBXGroup;
 			children = (
 				B1B31D1A1BA42A69007B9072 /* ios7-home-outline2x.png */,
@@ -254,6 +254,7 @@
 				B1EF390B1BA3D59200B11885 /* ParseUI.framework */,
 				B1EF38D01BA3D23700B11885 /* Supporting Files */,
 			);
+			name = Room;
 			path = SongQ;
 			sourceTree = "<group>";
 		};
@@ -266,12 +267,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		B1EF38E91BA3D23700B11885 /* SongQTests */ = {
+		B1EF38E91BA3D23700B11885 /* RoomTests */ = {
 			isa = PBXGroup;
 			children = (
-				B1EF38EC1BA3D23700B11885 /* SongQTests.m */,
+				B1EF38EC1BA3D23700B11885 /* RoomTests.m */,
 				B1EF38EA1BA3D23700B11885 /* Supporting Files */,
 			);
+			name = RoomTests;
 			path = SongQTests;
 			sourceTree = "<group>";
 		};
@@ -286,9 +288,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B1EF38CC1BA3D23700B11885 /* SongQ */ = {
+		B1EF38CC1BA3D23700B11885 /* Room */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B1EF38F01BA3D23700B11885 /* Build configuration list for PBXNativeTarget "SongQ" */;
+			buildConfigurationList = B1EF38F01BA3D23700B11885 /* Build configuration list for PBXNativeTarget "Room" */;
 			buildPhases = (
 				B1EF38C91BA3D23700B11885 /* Sources */,
 				B1EF38CA1BA3D23700B11885 /* Frameworks */,
@@ -298,14 +300,14 @@
 			);
 			dependencies = (
 			);
-			name = SongQ;
+			name = Room;
 			productName = SongQ;
-			productReference = B1EF38CD1BA3D23700B11885 /* SongQ.app */;
+			productReference = B1EF38CD1BA3D23700B11885 /* Room.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B1EF38E51BA3D23700B11885 /* SongQTests */ = {
+		B1EF38E51BA3D23700B11885 /* RoomTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B1EF38F31BA3D23700B11885 /* Build configuration list for PBXNativeTarget "SongQTests" */;
+			buildConfigurationList = B1EF38F31BA3D23700B11885 /* Build configuration list for PBXNativeTarget "RoomTests" */;
 			buildPhases = (
 				B1EF38E21BA3D23700B11885 /* Sources */,
 				B1EF38E31BA3D23700B11885 /* Frameworks */,
@@ -316,9 +318,9 @@
 			dependencies = (
 				B1EF38E81BA3D23700B11885 /* PBXTargetDependency */,
 			);
-			name = SongQTests;
+			name = RoomTests;
 			productName = SongQTests;
-			productReference = B1EF38E61BA3D23700B11885 /* SongQTests.xctest */;
+			productReference = B1EF38E61BA3D23700B11885 /* Room.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -345,7 +347,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B1EF38C81BA3D23700B11885 /* Build configuration list for PBXProject "SongQ" */;
+			buildConfigurationList = B1EF38C81BA3D23700B11885 /* Build configuration list for PBXProject "Room" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -358,8 +360,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B1EF38CC1BA3D23700B11885 /* SongQ */,
-				B1EF38E51BA3D23700B11885 /* SongQTests */,
+				B1EF38CC1BA3D23700B11885 /* Room */,
+				B1EF38E51BA3D23700B11885 /* RoomTests */,
 			);
 		};
 /* End PBXProject section */
@@ -415,7 +417,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1EF38ED1BA3D23700B11885 /* SongQTests.m in Sources */,
+				B1EF38ED1BA3D23700B11885 /* RoomTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,7 +426,7 @@
 /* Begin PBXTargetDependency section */
 		B1EF38E81BA3D23700B11885 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B1EF38CC1BA3D23700B11885 /* SongQ */;
+			target = B1EF38CC1BA3D23700B11885 /* Room */;
 			targetProxy = B1EF38E71BA3D23700B11885 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -485,7 +487,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = songq;
@@ -523,7 +525,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = songq;
 				SDKROOT = iphoneos;
@@ -543,7 +545,8 @@
 				);
 				INFOPLIST_FILE = SongQ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = Room.Room;
+				PRODUCT_NAME = Room;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -560,7 +563,8 @@
 				);
 				INFOPLIST_FILE = SongQ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = Room.Room;
+				PRODUCT_NAME = Room;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -579,8 +583,8 @@
 				);
 				INFOPLIST_FILE = SongQTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SongQ.app/SongQ";
+				PRODUCT_NAME = Room;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Room.app/Room";
 			};
 			name = Debug;
 		};
@@ -594,15 +598,15 @@
 				);
 				INFOPLIST_FILE = SongQTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SongQ.app/SongQ";
+				PRODUCT_NAME = Room;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Room.app/Room";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B1EF38C81BA3D23700B11885 /* Build configuration list for PBXProject "SongQ" */ = {
+		B1EF38C81BA3D23700B11885 /* Build configuration list for PBXProject "Room" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B1EF38EE1BA3D23700B11885 /* Debug */,
@@ -611,7 +615,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B1EF38F01BA3D23700B11885 /* Build configuration list for PBXNativeTarget "SongQ" */ = {
+		B1EF38F01BA3D23700B11885 /* Build configuration list for PBXNativeTarget "Room" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B1EF38F11BA3D23700B11885 /* Debug */,
@@ -620,7 +624,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B1EF38F31BA3D23700B11885 /* Build configuration list for PBXNativeTarget "SongQTests" */ = {
+		B1EF38F31BA3D23700B11885 /* Build configuration list for PBXNativeTarget "RoomTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B1EF38F41BA3D23700B11885 /* Debug */,
